@@ -1,14 +1,27 @@
 <template>
-  <HeaderApp/>
+	<div>
+		<HeaderApp/>
+		<div class='mainContent'>
+			<LeftBarApp/>
+			<BodyApp/>
+		</div>
+		<FooterApp/>
+	</div>
 </template>
 
 <script>
-import HeaderApp from './components/Header.vue'
+import HeaderApp from './components/Header.vue';
+import LeftBarApp from './components/Leftbar.vue';
+import BodyApp from './components/Body.vue';
+import FooterApp from './components/Footer.vue';
 
 export default {
   name: 'App',
   components: {
-    HeaderApp
+    HeaderApp,
+	LeftBarApp,
+	BodyApp,
+	FooterApp,
   }
 }
 </script>
@@ -50,6 +63,11 @@ table {
 }
 /*==========================*/
 #app{
-  font-family: 'Roboto', Tahoma, sans-serif;
+	font-family: 'Roboto', Tahoma, sans-serif;
+}
+.mainContent{
+	display: flex;
+    flex-direction: row;
+	justify-content: space-between;
 }
 </style>
