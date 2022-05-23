@@ -10,7 +10,7 @@
       </div>
       <div class='main'>
         <div class='btn'>
-          <button>Вход</button>
+          <button v-on:click="login">Вход</button>
         </div>
         <div class='btn'>
           <button>Регистрация</button>
@@ -20,8 +20,18 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'Header',
+  methods:{
+    ...mapActions([
+      'TOGGLE_AUTH_VISIBLE',
+    ]),
+    login(){
+      this.TOGGLE_AUTH_VISIBLE(true);
+    },
+  }
 }
 </script>
 
@@ -30,7 +40,7 @@ export default {
 h1{
   font-style: normal;
   font-weight: 700;
-  font-size: 36px;
+  font-size: 32px;
   line-height: 42px;
   color: #FFFFFF;
 }
@@ -52,7 +62,7 @@ button{
   background: #35BACC;
   border-radius: 34px;
   color: #FFFFFF;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 28px;
   border: none;

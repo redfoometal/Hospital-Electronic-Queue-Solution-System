@@ -1,28 +1,42 @@
 <template>
 	<div>
 		<HeaderApp/>
-		<div class='mainContent'>
-			<LeftBarApp/>
-			<BodyApp/>
-		</div>
+		<ShadowModal v-if="GET_AUTH_VISIBLE"/>
+		<Auth v-if="GET_AUTH_VISIBLE"/>
+		
+		<BodyApp/>
 		<FooterApp/>
 	</div>
 </template>
 
 <script>
 import HeaderApp from './components/Header.vue';
-import LeftBarApp from './components/Leftbar.vue';
 import BodyApp from './components/Body.vue';
 import FooterApp from './components/Footer.vue';
+import Auth from './components/Auth.vue'
+import ShadowModal from './components/ShadowModal.vue'
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'App',
   components: {
     HeaderApp,
-	LeftBarApp,
 	BodyApp,
 	FooterApp,
-  }
+	Auth,
+	ShadowModal,
+  },
+  data: function () {
+    return {
+
+	}
+  },
+  computed:{
+	...mapGetters([
+		'GET_AUTH_VISIBLE',
+		'GET_REG_VISIBLE',
+	])
+  },
 }
 </script>
 
